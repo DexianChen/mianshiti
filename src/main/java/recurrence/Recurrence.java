@@ -1,6 +1,5 @@
 package recurrence;
 
-<<<<<<< HEAD
 /**
  * @author cdx
  * date: 2019/08/18

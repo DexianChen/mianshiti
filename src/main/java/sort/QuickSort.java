@@ -11,7 +11,7 @@ public class QuickSort {
         int[] num = {3,3,2,5,4,6,2,1,0};
         System.out.println(arrayToString(num,"未排序"));
 
-        QuickSort(num,0,num.length-1);
+        quickSort(num,0,num.length-1);
         System.out.println(arrayToString(num,"排序"));
 
         System.out.println("数组个数："+num.length);
@@ -24,43 +24,45 @@ public class QuickSort {
      * @param left	数组的前针
      * @param right 数组后针
      */
-    private static void QuickSort(int[] num, int left, int right) {
-        //如果left等于right，即数组只有一个元素，直接返回
+    private static void quickSort(int[] num, int left, int right) {
+        // 如果left等于right，即数组只有一个元素，直接返回
         if(left>=right) {
             return;
         }
 
-        //设置最左边的元素为基准值
+        // 设置最左边的元素为基准值
         int key=num[left];
 
-        //数组中比key小的放在左边，比key大的放在右边，key值下标为i
-        int i=left;
-        int j=right;
+        // 数组中比key小的放在左边，比key大的放在右边，key值下标为i
+        int i = left;
+        int j = right;
         while(i<j){
-            //j向左移，直到遇到比key小的值
+            // j向左移，直到遇到比key小的值
             while(num[j]>=key && i<j){
                 j--;
             }
-            //i向右移，直到遇到比key大的值
+
+            // i向右移，直到遇到比key大的值
             while(num[i]<=key && i<j){
                 i++;
             }
-            //i和j指向的元素交换
+
+            // i和j指向的元素交换
             if(i<j){
                 int temp=num[i];
                 num[i]=num[j];
                 num[j]=temp;
             }
         }
-        //将之前的参考值和索引号与中轴的值和索引进行交换
+        // 将之前的参考值和索引号与中轴的值和索引进行交换
         num[left]=num[i];
         num[i]=key;
 
         count++;
 
-        //left = right 即可结束递归
-        QuickSort(num,left,i-1);
-        QuickSort(num,i+1,right);
+        // left = right 即可结束递归
+        quickSort(num,left,i-1);
+        quickSort(num,i+1,right);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
     /**
      * 将一个int类型数组转化为字符串

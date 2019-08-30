@@ -2,7 +2,7 @@ package design_pattern.factory_pattern;
 
 import design_pattern.factory_pattern.factory.SimpleFactory;
 import design_pattern.factory_pattern.factory.StaticFactory;
-import design_pattern.factory_pattern.factory.abstact.AbstactFactory;
+import design_pattern.factory_pattern.factory.abstact.AbstractFactory;
 import design_pattern.factory_pattern.factory.abstact.MailFactory;
 
 public class FactoryTest {
@@ -23,7 +23,7 @@ public class FactoryTest {
         /**
          * 抽象工厂
          */
-        AbstactFactory mailFactory = new MailFactory();
+        AbstractFactory mailFactory = new MailFactory();
         Sender sender = mailFactory.create();
         sender.send();
     }
